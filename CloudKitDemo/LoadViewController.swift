@@ -122,6 +122,32 @@ class LoadViewController: UITableViewController {
         })
     }
 
+    @IBAction func composeButtonPressed() {
+
+        records.removeAll()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+        let recordID = CKRecordID(recordName: "3CE4A09E-815E-45FE-B344-235AFFF47F49")
+        let reference = CKReference(recordID: recordID, action: .none)
+        let predicate = NSPredicate(format: "father = %@", reference)
+        let query = CKQuery(recordType: "subItem", predicate: predicate)
+        publicDatabase?.perform(query, inZoneWith: nil, completionHandler: { [weak self] (queryRecords, queryError) in
+            if let error = queryError {
+                print(error)
+            } else {
+                if let qRecords = queryRecords {
+                    DispatchQueue.main.async {
+                        print("------------------------")
+                        self?.records.append(contentsOf: qRecords)
+                        self?.tableView.reloadData()
+                    }
+                }
+            }
+
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        })
+    }
+
     @IBAction func refreshButtonPressed() {
 
         records.removeAll()
@@ -188,7 +214,7 @@ extension LoadViewController {
         // Configure the cell...
         let record = records[indexPath.row]
         cell.textLabel?.text = record.recordID.recordName
-        cell.detailTextLabel?.text = (record.creationDate?.description)! + "  ---  " + (record["mobile"] as? String)!
+        cell.detailTextLabel?.text = record.creationDate?.description
 
         return cell
     }

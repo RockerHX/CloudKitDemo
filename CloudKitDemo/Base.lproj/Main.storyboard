@@ -56,11 +56,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Create" id="wo9-ah-Zx2">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="SJP-vq-sb0">
-                            <connections>
-                                <action selector="pushButtonPressed" destination="zM3-Ji-2jL" id="8bm-Ol-KbK"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="action" id="SJP-vq-sb0">
+                                <connections>
+                                    <action selector="pushButtonPressed" destination="zM3-Ji-2jL" id="8bm-Ol-KbK"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="compose" id="mDv-xB-URM">
+                                <connections>
+                                    <action selector="composeButtonPressed" destination="zM3-Ji-2jL" id="Dz3-cx-Qsv"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="I66-VO-bAu">
                             <connections>
                                 <action selector="addButtonPressed" destination="zM3-Ji-2jL" id="28E-UY-bdk"/>
@@ -147,11 +154,18 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="UkC-Fk-0MA">
-                            <connections>
-                                <action selector="refreshButtonPressed" destination="SFP-u9-vKk" id="b0L-ej-fja"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="UkC-Fk-0MA">
+                                <connections>
+                                    <action selector="refreshButtonPressed" destination="SFP-u9-vKk" id="b0L-ej-fja"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="compose" id="xBt-r1-AvN">
+                                <connections>
+                                    <action selector="composeButtonPressed" destination="SFP-u9-vKk" id="9nL-NI-nHW"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pg1-gt-ZEO" userLabel="First Responder" sceneMemberID="firstResponder"/>

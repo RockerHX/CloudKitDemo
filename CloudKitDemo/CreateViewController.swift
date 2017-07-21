@@ -55,7 +55,7 @@ class CreateViewController: UITableViewController {
         let reference = CKReference(recordID: recordID, action: .none)
 
         let dRecord = CKRecord(recordType: "dDemoItem")
-        dRecord["sbitem"] = reference
+        dRecord["item"] = reference
         dRecord["name"] = "sb" as CKRecordValue
         dRecord["title"] = "Da Sha Bi ++" as CKRecordValue
         dRecord["mobile"] = "43420024420" as CKRecordValue
@@ -77,8 +77,75 @@ class CreateViewController: UITableViewController {
                             }
                         }
                     }
-                    
+
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                })
+            }
+        })
+    }
+
+    @IBAction func composeButtonPressed() {
+
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+        let dRecord = CKRecord(recordType: "dDemoItem")
+        dRecord["name"] = "sb" as CKRecordValue
+        dRecord["title"] = "Da Sha Bi ++" as CKRecordValue
+        dRecord["mobile"] = "43420024420" as CKRecordValue
+
+        let reference = CKReference(recordID: dRecord.recordID, action: .none)
+
+        let subRecord1 = CKRecord(recordType: "subItem")
+        subRecord1["date"] = Date().description as CKRecordValue
+        subRecord1["father"] = reference
+
+        let subRecord2 = CKRecord(recordType: "subItem")
+        subRecord2["date"] = Date().description as CKRecordValue
+        subRecord2["father"] = reference
+
+        publicDatabase?.save(subRecord1, completionHandler: { [weak self] (saveRecord, saveError) in
+            if let error = saveError {
+                print(error)
+            } else {
+                DispatchQueue.main.async {
+                    if let record = saveRecord {
+                        print("------------------------")
+                        print(record)
+                        self?.records.append(record)
+                        self?.tableView.reloadData()
+                    }
+                }
+
+                self?.publicDatabase?.save(subRecord2, completionHandler: { [weak self] (saveRecord, saveError) in
+                    if let error = saveError {
+                        print(error)
+                    } else {
+                        DispatchQueue.main.async {
+                            if let record = saveRecord {
+                                print("------------------------")
+                                print(record)
+                                self?.records.append(record)
+                                self?.tableView.reloadData()
+                            }
+                        }
+
+                        self?.publicDatabase?.save(dRecord, completionHandler: { [weak self] (saveRecord, saveError) in
+                            if let error = saveError {
+                                print(error)
+                            } else {
+                                DispatchQueue.main.async {
+                                    if let record = saveRecord {
+                                        print("------------------------")
+                                        print(record)
+                                        self?.records.append(record)
+                                        self?.tableView.reloadData()
+                                    }
+                                }
+                            }
+                            
+                            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                        })
+                    }
                 })
             }
         })
