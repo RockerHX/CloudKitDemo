@@ -43,7 +43,7 @@ class LoadViewController: UITableViewController {
 
     // MARK: - Event Methods -
     @IBAction func searchButtonPressed() {
-
+        
         records.removeAll()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
@@ -223,4 +223,3 @@ extension LoadViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }
-

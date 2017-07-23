@@ -15,6 +15,7 @@
 		AC65F7E01F1EF1D900A139AB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC65F7DF1F1EF1D900A139AB /* CloudKit.framework */; };
 		AC65F7E21F1EF55300A139AB /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65F7E11F1EF55300A139AB /* CreateViewController.swift */; };
 		AC65F7E41F1F0D3200A139AB /* HXCloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65F7E31F1F0D3200A139AB /* HXCloudKitManager.swift */; };
+		C6BF9BC61F24F1BD00A7488D /* OperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BF9BC51F24F1BD00A7488D /* OperationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		AC65F7DF1F1EF1D900A139AB /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		AC65F7E11F1EF55300A139AB /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		AC65F7E31F1F0D3200A139AB /* HXCloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HXCloudKitManager.swift; sourceTree = "<group>"; };
+		C6BF9BC51F24F1BD00A7488D /* OperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				AC65F7C91F1EF19800A139AB /* AppDelegate.swift */,
 				AC65F7E11F1EF55300A139AB /* CreateViewController.swift */,
 				AC65F7CD1F1EF19800A139AB /* LoadViewController.swift */,
+				C6BF9BC51F24F1BD00A7488D /* OperationViewController.swift */,
 				AC65F7E31F1F0D3200A139AB /* HXCloudKitManager.swift */,
 				AC65F7CF1F1EF19800A139AB /* Main.storyboard */,
 				AC65F7D21F1EF19800A139AB /* Assets.xcassets */,
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC65F7E41F1F0D3200A139AB /* HXCloudKitManager.swift in Sources */,
+				C6BF9BC61F24F1BD00A7488D /* OperationViewController.swift in Sources */,
 				AC65F7E21F1EF55300A139AB /* CreateViewController.swift in Sources */,
 				AC65F7CE1F1EF19800A139AB /* LoadViewController.swift in Sources */,
 				AC65F7CA1F1EF19800A139AB /* AppDelegate.swift in Sources */,
@@ -334,6 +338,7 @@
 				AC65F7DC1F1EF19800A139AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,7 +78,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Op-px-ePx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1535" y="-330"/>
+            <point key="canvasLocation" x="1534" y="-322"/>
         </scene>
         <!--Create-->
         <scene sceneID="KC7-qs-pp5">
@@ -95,7 +95,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f36-Ea-Fxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-329"/>
+            <point key="canvasLocation" x="750" y="-321"/>
         </scene>
         <!--LoadViewController-->
         <scene sceneID="WPG-2T-03n">
@@ -170,7 +170,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pg1-gt-ZEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1534" y="368"/>
+            <point key="canvasLocation" x="1534" y="345"/>
         </scene>
         <!--Load-->
         <scene sceneID="2ZA-f4-YdJ">
@@ -187,7 +187,64 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qow-lP-8bm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="368"/>
+            <point key="canvasLocation" x="750" y="345"/>
+        </scene>
+        <!--OperationViewController-->
+        <scene sceneID="OTk-Jo-qHt">
+            <objects>
+                <tableViewController storyboardIdentifier="OperationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2S3-F7-GxZ" userLabel="OperationViewController" customClass="OperationViewController" customModule="CloudKitDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gSG-60-nKe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="N6o-bR-spd">
+                            <rect key="frame" x="0.0" y="72" width="375" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OperationCell" id="uiw-5v-Why">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uiw-5v-Why" id="jOL-Ux-Jlw">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2S3-F7-GxZ" id="giC-A4-Dwb"/>
+                            <outlet property="delegate" destination="2S3-F7-GxZ" id="UC6-vg-pRR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Operation" id="BCY-p5-UlC">
+                        <barButtonItem key="rightBarButtonItem" title="Fetch" id="QtK-RK-UBt">
+                            <connections>
+                                <action selector="fetchButtonPressed" destination="2S3-F7-GxZ" id="l7j-a5-m5h"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZW9-h9-ifn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1534" y="1034"/>
+        </scene>
+        <!--Operation-->
+        <scene sceneID="NCn-PN-gzv">
+            <objects>
+                <navigationController id="ocS-6O-OCh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Operation" image="second" id="jGQ-bN-941"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4FC-nD-BbC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2S3-F7-GxZ" kind="relationship" relationship="rootViewController" id="IHi-uf-ptk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dv9-8P-KMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="1034"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -202,6 +259,7 @@
                     <connections>
                         <segue destination="vKQ-Vl-SeJ" kind="relationship" relationship="viewControllers" id="ViV-gq-l8y"/>
                         <segue destination="SPC-77-GD3" kind="relationship" relationship="viewControllers" id="1se-Qv-SeP"/>
+                        <segue destination="ocS-6O-OCh" kind="relationship" relationship="viewControllers" id="Ntp-4Q-Xd1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
