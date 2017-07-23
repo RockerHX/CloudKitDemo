@@ -49,25 +49,37 @@ class OperationViewController: UITableViewController {
 
         let fetchRecordsOperation = CKFetchRecordsOperation(recordIDs: [CKRecordID(recordName: "Demo-ID-Default-Zone"),
                                                                         CKRecordID(recordName: "Demo-ID-Default-Zone1")])
-//        fetchRecordsOperation.perRecordCompletionBlock = { (perRecord, perRecordID, perError) in
-//            print("Per")
-//            if let error = perError {
-//                print(error)
-//            } else {
-//                if let record = perRecord, let recordID = perRecordID {
-//                    print(record)
-//                    print(recordID)
-//                }
-//            }
-//        }
+        fetchRecordsOperation.perRecordCompletionBlock = { [weak self] (perRecord, perRecordID, perError) in
+            print("Per")
+            if let error = perError {
+                print(error)
+            } else {
+                if let record = perRecord, let recordID = perRecordID {
+                    print("------------------------")
+                    print(record)
+                    print(recordID)
+                    DispatchQueue.main.async {
+                        self?.records.append(record)
+                        self?.tableView.reloadData()
+                    }
+                }
+            }
+        }
 
-        fetchRecordsOperation.fetchRecordsCompletionBlock = { (fetchRecordsByRecordID, fetchError) in
+        fetchRecordsOperation.fetchRecordsCompletionBlock = { [weak self] (fetchRecordsByRecordID, fetchError) in
             print("Fetch")
             if let error = fetchError {
                 print(error)
             } else {
                 if let recordsByRecordID = fetchRecordsByRecordID {
-                    print(recordsByRecordID)
+                    for (recordID, record) in recordsByRecordID {
+                        print("------------------------")
+                        print(recordID)
+                        DispatchQueue.main.async {
+                            self?.records.append(record)
+                            self?.tableView.reloadData()
+                        }
+                    }
                 }
             }
 

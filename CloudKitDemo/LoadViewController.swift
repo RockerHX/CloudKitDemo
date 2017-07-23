@@ -128,8 +128,9 @@ class LoadViewController: UITableViewController {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
         let recordID = CKRecordID(recordName: "3CE4A09E-815E-45FE-B344-235AFFF47F49")
-        let reference = CKReference(recordID: recordID, action: .none)
-        let predicate = NSPredicate(format: "father = %@", reference)
+//        let reference = CKReference(recordID: recordID, action: .none)
+        let predicate = NSPredicate(format: "father = %@", recordID)
+        print(predicate)
         let query = CKQuery(recordType: "subItem", predicate: predicate)
         publicDatabase?.perform(query, inZoneWith: nil, completionHandler: { [weak self] (queryRecords, queryError) in
             if let error = queryError {
