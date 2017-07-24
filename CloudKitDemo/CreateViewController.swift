@@ -151,11 +151,48 @@ class CreateViewController: UITableViewController {
         })
     }
 
+    @IBAction func customZoneButtonPressed() {
+
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
+        let customZone = CKRecordZone(zoneName: "DemoZone")
+
+        // Save the friendsZone in the private database
+        privateDatabase?.save(customZone, completionHandler: { [weak self] (saveZone, savaError) in
+            if let error = savaError {
+                print(error)
+            } else {
+                if let zone = saveZone {
+                    let record = CKRecord(recordType: "DemoItem", zoneID: zone.zoneID)
+                    record["name"] = "sb" as CKRecordValue
+                    record["title"] = "Da Sha Bi ++" as CKRecordValue
+                    record["mobile"] = "43420024420" as CKRecordValue
+
+                    self?.privateDatabase?.save(record, completionHandler: { [weak self] (saveRecord, saveError) in
+                        if let error = saveError {
+                            print(error)
+                        } else {
+                            DispatchQueue.main.async {
+                                if let record = saveRecord {
+                                    print("------------------------")
+                                    print(record)
+                                    self?.records.append(record)
+                                    self?.tableView.reloadData()
+                                }
+                            }
+                        }
+                        
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    })
+                }
+            }
+        })
+    }
+
     @IBAction func addButtonPressed() {
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//        let zoneID = CKRecordZoneID(zoneName: "SB Zone", ownerName: "SB Owner")
-//        let record = CKRecord(recordType: "dDemoItem", zoneID:zoneID)
+        
         let record = CKRecord(recordType: "dDemoItem")
         record["name"] = "sb" as CKRecordValue
         record["title"] = "Da Sha Bi ++" as CKRecordValue
