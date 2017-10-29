@@ -11,6 +11,7 @@
 
 import UIKit
 import CloudKit
+import PromiseKit
 
 
 class OperationViewController: UITableViewController {
@@ -19,20 +20,11 @@ class OperationViewController: UITableViewController {
     // MARK: - Public Property -
     // MARK: - Private Property -
     var records = [CKRecord]()
-    var cloudContainer = CKContainer.default()
-    var publicDatabase: CKDatabase?
-    var privateDatabase: CKDatabase?
-    var shareDatabase: CKDatabase?
+    let cloudKitManager = HXCloudKitManager.manager
 
     // MARK: - View Controller Life Cycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 
         configure()
     }
@@ -43,77 +35,37 @@ class OperationViewController: UITableViewController {
 
     // MARK: - Event Methods -
     @IBAction func fetchButtonPressed() {
-
+        // 批量拉取
         records.removeAll()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-
-        let fetchRecordsOperation = CKFetchRecordsOperation(recordIDs: [CKRecordID(recordName: "Demo-ID-Default-Zone"),
-                                                                        CKRecordID(recordName: "Demo-ID-Default-Zone1")])
-        fetchRecordsOperation.perRecordCompletionBlock = { [weak self] (perRecord, perRecordID, perError) in
-            print("Per")
-            if let error = perError {
-                print(error)
-            } else {
-                if let record = perRecord, let recordID = perRecordID {
-                    print("------------------------")
-                    print(record)
-                    print(recordID)
-                    DispatchQueue.main.async {
-                        self?.records.append(record)
-                        self?.tableView.reloadData()
-                    }
-                }
-            }
-        }
-
-        fetchRecordsOperation.fetchRecordsCompletionBlock = { [weak self] (fetchRecordsByRecordID, fetchError) in
-            print("Fetch")
-            if let error = fetchError {
-                print(error)
-            } else {
-                if let recordsByRecordID = fetchRecordsByRecordID {
-                    for (recordID, record) in recordsByRecordID {
-                        print("------------------------")
-                        print(recordID)
-                        DispatchQueue.main.async {
-                            self?.records.append(record)
-                            self?.tableView.reloadData()
-                        }
-                    }
-                }
-            }
-
+        firstly {
+            cloudKitManager.checkAccountStatus()
+        }.then { Void -> Promise<[CKRecord]> in
+            var promises = [Promise<CKRecord>]()
+            var recordID = CKRecordID(recordName: "2017-10-29 14:47:04 +0000")
+            var promise = self.cloudKitManager.publicDatabase.fetch(withRecordID: recordID)
+            promises.append(promise)
+            recordID = CKRecordID(recordName: "2017-10-29 14:24:17 +0000")
+            promise = self.cloudKitManager.publicDatabase.fetch(withRecordID: recordID)
+            promises.append(promise)
+            recordID = CKRecordID(recordName: "2017-10-29 11:32:07 +0000")
+            promise = self.cloudKitManager.publicDatabase.fetch(withRecordID: recordID)
+            promises.append(promise)
+            return when(fulfilled: promises)
+        }.then(on: DispatchQueue.main) { records -> Void in
+            print("------------------------")
+            print(records)
+            self.records.append(contentsOf: records)
+            self.tableView.reloadData()
+        }.always {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }.catch { error in
+            print(error)
         }
-
-        fetchRecordsOperation.database = publicDatabase
-        fetchRecordsOperation.start()
     }
     
     // MARK: - Private Methods -
     fileprivate func configure() {
-
-        CKContainer.default().accountStatus { (accountStatus, accountError) in
-
-            switch accountStatus {
-            case .couldNotDetermine:
-                print("accountStatus: couldNotDetermine")
-            case .available:
-                print("accountStatus: available")
-            case .restricted:
-                print("accountStatus: restricted")
-            case .noAccount:
-                print("accountStatus: noAccount")
-            }
-
-            if let error = accountError {
-                print("error:\(error)")
-            } else {
-                self.publicDatabase = self.cloudContainer.publicCloudDatabase
-                self.privateDatabase = self.cloudContainer.privateCloudDatabase
-                self.shareDatabase = self.cloudContainer.sharedCloudDatabase
-            }
-        }
     }
 
 }
