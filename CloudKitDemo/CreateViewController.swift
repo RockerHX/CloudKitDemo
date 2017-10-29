@@ -20,7 +20,7 @@ class CreateViewController: UITableViewController {
     // MARK: - Public Property -
     // MARK: - Private Property -
     var records = [CKRecord]()
-    let cloudKitManager = HXCloudKitManager()
+    let cloudKitManager = HXCloudKitManager.manager
 
     // MARK: - View Controller Life Cycle -
     override func viewDidLoad() {
@@ -42,16 +42,15 @@ class CreateViewController: UITableViewController {
             demoRecord["title"] = "demo title" as CKRecordValue
             demoRecord["mobile"] = "123123123" as CKRecordValue
             return self.cloudKitManager.publicDatabase.save(demoRecord)
-        }.then(on: DispatchQueue.main) { record -> Promise<Void> in
+        }.then(on: DispatchQueue.main) { record -> Void in
             print("------------------------")
             print(record)
             self.records.append(record)
             self.tableView.reloadData()
-            return Promise()
-        }.catch { error in
-            print(error)
         }.always {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }.catch { error in
+            print(error)
         }
     }
 
@@ -75,16 +74,15 @@ class CreateViewController: UITableViewController {
             subDemoRecord["title"] = "demo sub title" as CKRecordValue
             subDemoRecord["mobile"] = "321321321" as CKRecordValue
             return self.cloudKitManager.publicDatabase.save(subDemoRecord)
-        }.then(on: DispatchQueue.main) { record -> Promise<Void> in
+        }.then(on: DispatchQueue.main) { record -> Void in
             print("------------------------")
             print(record)
             self.records.append(record)
             self.tableView.reloadData()
-            return Promise()
-        }.catch { error in
-            print(error)
         }.always {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }.catch { error in
+            print(error)
         }
     }
 
@@ -103,16 +101,15 @@ class CreateViewController: UITableViewController {
             demoRecord["title"] = "demo title" as CKRecordValue
             demoRecord["mobile"] = "123123123" as CKRecordValue
             return self.cloudKitManager.privateDatabase.save(demoRecord)
-        }.then(on: DispatchQueue.main) { record -> Promise<Void> in
+        }.then(on: DispatchQueue.main) { record -> Void in
             print("------------------------")
             print(record)
             self.records.append(record)
             self.tableView.reloadData()
-            return Promise()
-        }.catch { error in
-            print(error)
         }.always {
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }.catch { error in
+            print(error)
         }
     }
 

@@ -10,7 +10,6 @@
 import CloudKit
 import PromiseKit
 
-
 class HXCloudKitManager: NSObject {
 
     static let manager = HXCloudKitManager()
@@ -21,13 +20,6 @@ class HXCloudKitManager: NSObject {
     private(set) var publicDatabase: CKDatabase!
     private(set) var privateDatabase: CKDatabase!
     private(set) var shareDatabase: CKDatabase!
-
-    // MARK: - Initialize Methods -
-    override init() {
-        super.init()
-
-        _ = checkAccountStatus()
-    }
 
     // MARK: - Public Methods -
     public func checkAccountStatus() -> Promise<Void> {
