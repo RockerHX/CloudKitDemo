@@ -55,6 +55,7 @@ class LoadViewController: UITableViewController {
     }
 
     @IBAction func composeButtonPressed() {
+        // CKReference筛选查询
         records.removeAll()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
@@ -78,6 +79,7 @@ class LoadViewController: UITableViewController {
     }
 
     @IBAction func refreshButtonPressed() {
+        // 普通属性筛选查询
         records.removeAll()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         firstly {
