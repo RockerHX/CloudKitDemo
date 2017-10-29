@@ -141,18 +141,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Load" id="H9J-bu-N8U">
-                        <leftBarButtonItems>
-                            <barButtonItem systemItem="search" id="wjj-qD-Bgc">
-                                <connections>
-                                    <action selector="searchButtonPressed" destination="SFP-u9-vKk" id="DOL-k2-BCr"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="play" id="fND-Xt-BaW">
-                                <connections>
-                                    <action selector="playButtonPressed" destination="SFP-u9-vKk" id="sEN-CX-jx7"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="wjj-qD-Bgc">
+                            <connections>
+                                <action selector="searchButtonPressed" destination="SFP-u9-vKk" id="DOL-k2-BCr"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="refresh" id="UkC-Fk-0MA">
                                 <connections>
