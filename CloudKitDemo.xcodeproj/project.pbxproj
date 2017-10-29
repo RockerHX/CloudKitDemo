@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61F54FFA0C2B86289CD66CE8 /* Pods_CloudKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D9A1D6A32A4243225C1781 /* Pods_CloudKitDemo.framework */; };
 		AC65F7CA1F1EF19800A139AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65F7C91F1EF19800A139AB /* AppDelegate.swift */; };
 		AC65F7CE1F1EF19800A139AB /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC65F7CD1F1EF19800A139AB /* LoadViewController.swift */; };
 		AC65F7D11F1EF19800A139AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC65F7CF1F1EF19800A139AB /* Main.storyboard */; };
@@ -19,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28D9A1D6A32A4243225C1781 /* Pods_CloudKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CloudKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36DDD5D6706BE6BE32BFD9C3 /* Pods-CloudKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CloudKitDemo/Pods-CloudKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		A2FCBF6A1B4C50E46150F736 /* Pods-CloudKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CloudKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CloudKitDemo/Pods-CloudKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 		AC65F7C61F1EF19800A139AB /* CloudKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC65F7C91F1EF19800A139AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC65F7CD1F1EF19800A139AB /* LoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
@@ -39,18 +43,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC65F7E01F1EF1D900A139AB /* CloudKit.framework in Frameworks */,
+				61F54FFA0C2B86289CD66CE8 /* Pods_CloudKitDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A475DB9FA27D2B9FB4AF42E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36DDD5D6706BE6BE32BFD9C3 /* Pods-CloudKitDemo.debug.xcconfig */,
+				A2FCBF6A1B4C50E46150F736 /* Pods-CloudKitDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AC65F7BD1F1EF19800A139AB = {
 			isa = PBXGroup;
 			children = (
 				AC65F7C81F1EF19800A139AB /* CloudKitDemo */,
 				AC65F7C71F1EF19800A139AB /* Products */,
 				AC65F7DE1F1EF1D900A139AB /* Frameworks */,
+				9A475DB9FA27D2B9FB4AF42E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				AC65F7DF1F1EF1D900A139AB /* CloudKit.framework */,
+				28D9A1D6A32A4243225C1781 /* Pods_CloudKitDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -94,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC65F7DA1F1EF19800A139AB /* Build configuration list for PBXNativeTarget "CloudKitDemo" */;
 			buildPhases = (
+				4F67B9C11ECCDEAE1C052E51 /* [CP] Check Pods Manifest.lock */,
 				AC65F7C21F1EF19800A139AB /* Sources */,
 				AC65F7C31F1EF19800A139AB /* Frameworks */,
 				AC65F7C41F1EF19800A139AB /* Resources */,
+				7299435663BD90F59A58D208 /* [CP] Embed Pods Frameworks */,
+				4A50F22C99B944BFF8A8E575 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -114,7 +133,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = RockerHX;
 				TargetAttributes = {
 					AC65F7C51F1EF19800A139AB = {
@@ -163,6 +182,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4A50F22C99B944BFF8A8E575 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CloudKitDemo/Pods-CloudKitDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F67B9C11ECCDEAE1C052E51 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CloudKitDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7299435663BD90F59A58D208 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CloudKitDemo/Pods-CloudKitDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CloudKitDemo/Pods-CloudKitDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AC65F7C21F1EF19800A139AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -208,7 +281,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -216,7 +291,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -258,7 +337,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -266,7 +347,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -293,29 +378,33 @@
 		};
 		AC65F7DB1F1EF19800A139AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36DDD5D6706BE6BE32BFD9C3 /* Pods-CloudKitDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CloudKitDemo/CloudKitDemo.entitlements;
 				DEVELOPMENT_TEAM = Y747X47RCY;
 				INFOPLIST_FILE = CloudKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xrdfso.CloudKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		AC65F7DC1F1EF19800A139AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2FCBF6A1B4C50E46150F736 /* Pods-CloudKitDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CloudKitDemo/CloudKitDemo.entitlements;
 				DEVELOPMENT_TEAM = Y747X47RCY;
 				INFOPLIST_FILE = CloudKitDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xrdfso.CloudKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

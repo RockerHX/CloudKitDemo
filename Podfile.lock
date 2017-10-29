@@ -1,0 +1,14 @@
+PODS:
+  - PromiseKit/CloudKit (4.4.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/CorePromise (4.4.3)
+
+DEPENDENCIES:
+  - PromiseKit/CloudKit (~> 4.0)
+
+SPEC CHECKSUMS:
+  PromiseKit: fbb52a0d154402c57eeb6eccd36dd7724fcf6117
+
+PODFILE CHECKSUM: 474a8cbb9bda9030e20471b26c0305dc36aac939
+
+COCOAPODS: 1.3.1
